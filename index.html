@@ -40,7 +40,9 @@
 
         <main class="container pt-5">
 
-            <ul class="email-list list-group">
+            <div v-if="emails.length < 10" class="text-center">Caricamento...</div>
+
+            <ul v-else class="email-list list-group">
                 <li v-for="email in emails" class="list-group-item">{{ email }}</li>
             </ul>
 
