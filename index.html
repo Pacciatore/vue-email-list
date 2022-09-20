@@ -36,17 +36,27 @@
 
 <body>
 
+    <div id="app" class="d-flex flex-column justify-content-between">
 
-    <footer class="py-4">
+        <main class="container pt-5">
 
-        <div class="container">
+            <ul class="email-list list-group">
+                <li v-for="email in emails" class="list-group-item">{{ email }}</li>
+            </ul>
 
-            <div id="tr-credits">Created by <a href="https://www.github.com/Pacciatore">Tommaso Raimondi</a></div>
+        </main>
 
-        </div>
+        <footer class="py-4">
 
-    </footer>
+            <div class="container">
 
+                <div id="tr-credits">Created by <a href="https://www.github.com/Pacciatore">Tommaso Raimondi</a></div>
+
+            </div>
+
+        </footer>
+
+    </div>
 
 </body>
 
