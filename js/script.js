@@ -5,11 +5,20 @@ const app = new Vue({
     data: {
         emails: [],
         numOfEmails: 10,
-        inputNum: 1
+        inputNum: 0
     },
     methods: {
         generateEmails() {
+
+            // Guard clause
+            if (this.numOfEmails <= 0) {
+                return;
+            }
+
+            // Reset array
             this.emails.length = 0;
+
+            // Inizio creazione email
             setTimeout(() => {
                 for (let i = 0; i < this.numOfEmails; i++) {
                     axios
@@ -23,8 +32,8 @@ const app = new Vue({
                 }
             }, 5)
         },
-        getNumOfEmails(deiredNumOfEmails) {
-            this.numOfEmails = deiredNumOfEmails;
+        getNumOfEmails(desiredNumOfEmails) {
+            this.numOfEmails = desiredNumOfEmails;
         }
     }
 })

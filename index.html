@@ -65,17 +65,24 @@
 
             </div>
 
-            <!-- Lista delle email generate -->
-            <div v-show="emails.length > 0">
-
-                <!-- Messaggio di caricamento -->
-                <div v-if="emails.length < numOfEmails" class="text-center">Caricamento...</div>
-
-                <!-- Tabella una volta caricato -->
-                <ul v-else class="email-list list-group">
-                    <li v-for="email in emails" class="list-group-item">{{ email }}</li>
-                </ul>
+            <!-- Aggiunta di un v-if per messaggio errore -->
+            <div v-if="numOfEmails <= 0">
+                <div class="text-center pt-5 h4 text-danger">Inserire un numero maggiore di 0 per iniziare.</div>
             </div>
+
+            <!-- Lista delle email generate -->
+            <template v-else>
+                <div v-show="emails.length > 0">
+
+                    <!-- Messaggio di caricamento -->
+                    <div v-if="emails.length < numOfEmails" class="text-center">Caricamento...</div>
+
+                    <!-- Tabella una volta caricato -->
+                    <ul v-else class="email-list list-group">
+                        <li v-for="email in emails" class="list-group-item">{{ email }}</li>
+                    </ul>
+                </div>
+            </template>
 
         </main>
 
