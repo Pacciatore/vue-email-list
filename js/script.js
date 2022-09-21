@@ -4,7 +4,8 @@ const app = new Vue({
     el: "#app",
     data: {
         emails: [],
-        numOfEmails: 1
+        numOfEmails: 10,
+        inputNum: 0
     },
     methods: {
         generateEmails() {
@@ -22,5 +23,8 @@ const app = new Vue({
                 }
             }, 5)
         },
+        getNumOfEmails(deiredNumOfEmails) {
+            this.numOfEmails = deiredNumOfEmails;
+        }
     }
 })

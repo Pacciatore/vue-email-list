@@ -52,12 +52,14 @@
                 <!-- Input numero di email da generare -->
                 <div class="input-container d-flex flex-column gap-2">
                     <label for="numberEmail">Inserire numero di email da generare: </label>
-                    <input type="number" v-model="numOfEmails" name="numberEmail" @keyUp.enter="generateEmails">
+                    <input type="number" v-model="inputNum" name="numberEmail"
+                        @keyUp.enter="getNumOfEmails(inputNum), generateEmails()">
                 </div>
 
                 <!-- Bottone per la generazione delle email -->
                 <div class="btn-container text-center align-self-center">
-                    <button @click="generateEmails" class="btn btn-dark">Crea {{ numOfEmails }} email
+                    <button @click="getNumOfEmails(inputNum), generateEmails()" class="btn btn-dark">Crea {{ inputNum
+                        }} email
                         casuali</button>
                 </div>
 
@@ -65,11 +67,6 @@
 
             <!-- Lista delle email generate -->
             <div v-show="emails.length > 0">
-
-                <!-- TODO Bug: una volta caricato la prima volta,
-                            il caricamento verrà visualizzato a schermo
-                            se si digita un numero superiore all'ultimo
-                            numero inserito -->
 
                 <!-- Messaggio di caricamento -->
                 <div v-if="emails.length < numOfEmails" class="text-center">Caricamento...</div>
