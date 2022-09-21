@@ -32,6 +32,9 @@ const app = new Vue({
                             }
 
                         })
+                        .catch((error) => {
+                            console.log('ERRORE! ', error);
+                        })
                 }
             }, 5)
         },
