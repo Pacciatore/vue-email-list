@@ -67,8 +67,9 @@
             <div v-show="emails.length > 0">
 
                 <!-- TODO Bug: una volta caricato la prima volta,
-                            il messaggio non sarà più visualizzabile
-                            nei successivi caricamenti -->
+                            il caricamento verrà visualizzato a schermo
+                            se si digita un numero superiore all'ultimo
+                            numero inserito -->
 
                 <!-- Messaggio di caricamento -->
                 <div v-if="emails.length < numOfEmails" class="text-center">Caricamento...</div>
