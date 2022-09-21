@@ -38,35 +38,50 @@
 
     <div id="app" class="d-flex flex-column justify-content-between">
 
+        <!-- Titolo pagina -->
         <header class="pt-3">
             <h1 class="text-center">Email List</h1>
         </header>
 
+        <!-- Contenuto principale -->
         <main class="container pt-5 flex-grow-1">
 
             <!-- Zona input array -->
             <div class="array-inputs-container pb-3 d-flex justify-content-around">
 
+                <!-- Input numero di email da generare -->
                 <div class="input-container d-flex flex-column gap-2">
                     <label for="numberEmail">Inserire numero di email da generare: </label>
                     <input type="number" v-model="numOfEmails" name="numberEmail" @keyUp.enter="generateEmails">
                 </div>
 
+                <!-- Bottone per la generazione delle email -->
                 <div class="btn-container text-center align-self-center">
                     <button @click="generateEmails" class="btn btn-dark">Crea {{ numOfEmails }} email
                         casuali</button>
                 </div>
 
             </div>
+
+            <!-- Lista delle email generate -->
             <div v-show="emails.length > 0">
+
+                <!-- TODO Bug: una volta caricato la prima volta,
+                            il messaggio non sarà più visualizzabile
+                            nei successivi caricamenti -->
+
+                <!-- Messaggio di caricamento -->
                 <div v-if="emails.length < numOfEmails" class="text-center">Caricamento...</div>
 
+                <!-- Tabella una volta caricato -->
                 <ul v-else class="email-list list-group">
                     <li v-for="email in emails" class="list-group-item">{{ email }}</li>
                 </ul>
             </div>
+
         </main>
 
+        <!-- Personal footer -->
         <footer class="py-4">
 
             <div class="container">
