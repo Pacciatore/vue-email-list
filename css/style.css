@@ -9,3 +9,7 @@ main {
 ::-webkit-scrollbar {
     display: none;
 }
+
+.input-container>input {
+    width: 60%;
+}
