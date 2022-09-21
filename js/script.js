@@ -3,6 +3,7 @@ console.log('SCRIPT OK!');
 const app = new Vue({
     el: "#app",
     data: {
+        loading: true,
         emails: [],
         numOfEmails: 10,
         inputNum: 0
@@ -27,6 +28,7 @@ const app = new Vue({
                             console.log(response.data.response);
                             if (response.status === 200) {
                                 this.emails.push(response.data.response);
+                                this.loading = this.emails.length < this.numOfEmails
                             }
 
                         })

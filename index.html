@@ -75,7 +75,7 @@
                 <div v-show="emails.length > 0">
 
                     <!-- Messaggio di caricamento -->
-                    <div v-if="emails.length < numOfEmails" class="text-center">Caricamento...</div>
+                    <div v-if="loading" class="text-center">Caricamento...</div>
 
                     <!-- Tabella una volta caricato -->
                     <ul v-else class="email-list list-group">
